@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width", initial-scale="1.0">
+	<title>CNTT-K19-G class page</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+	<section class="header">
+		<nav>
+			<a href="index.html"><img src="img/logo.png"></a>
+			<div class="nav-links" id="navLinks">
+				<i class="fa fa-times" aria-hidden="true" onclick="hideMenu()"></i>
+				<ul>
+					<li><a href="index.html">TRANG CHỦ</a></li>
+					<li><a href="about.html">GIỚI THIỆU</a></li>
+					<li><a href="event.html">HOẠT ĐỘNG</a></li>
+					<li><a href="blog.html">BLOG</a></li>
+					<li><a href="contact.html">LIÊN HỆ</a></li>
+				</ul>
+			</div>
+			<i class="fa fa-bars" aria-hidden="true" onclick="showMenu()"></i>
+		</nav>
+
+	<div class="text-box">
+		<h1>CNTT-K19-G</h1>
+		<p>Nơi sẻ chia những suy nghĩ, ý tưởng, cảm xúc, tình cảm, kinh nghiệm.<br> Nơi để mọi người giao lưu và kết bạn đến từ mọi nơi trên cả nước. <br> Câu truyện của chúng tôi.</p>
+		<a href="about.html" class="hero-btn">Hãy xem những gì chúng tôi đã trải qua </a>
+	</div>
+	</section>
+
+
+<!-- ----------------About us content------------------ -->
+
+	<section class="about-us">
+		<div class="row">
+			<div class="about-col">
+				<h1>Những sự kiện đã trải qua</h1>
+				<p>Đại học ngoại trừ học tập ra thì cũng có rất nhiều thứ để làm, để trải nghiệm. Cuộc sống đại học chưa bao giờ hết thứ để khám phá, không phải tự chúng ta tìm ra cũng là người khác mang đến để chúng ta trải nghiệm, để chúng ta sống hết mình với những ngày tháng tuổi trẻ. Các sự kiện mà chúng tôi đã tham gia đc được lưu trữ tại đây, biết về nó bất cứ khi nào bạn muốn.</p>
+				<a href="event.html" class="hero-btn blua-btn">KHÁM PHÁ NGAY</a>
+			</div>
+			<div class="about-col">
+				<img src="img/about.jpg">
+			</div>
+		</div>
+	</section>
+
+
+<!--------Contact-------->
+	<section class="contact">
+		<h1>Ôn lại kỷ niệm, tổ chức họp mặt hay tìm lại người những người bạn cũ.</h1>
+		<a href="contact.html" class="hero-btn">Liên hệ ngay</a>
+		
+	</section>
+
+<!--------Footer-------->
+	<section class="footer">
+		<h4>Về chúng tôi</h4>
+		<p>Đây là nơi mà tôi, người làm nên trang web này muốn lưu trữ lại những gì mà chúng tôi đã trải qua, đang trải qua và sẽ trải qua.</p>
+		<div class="icons">
+			<i class="fa fa-facebook" aria-hidden="true"></i>
+			<i class="fa fa-twitter" aria-hidden="true"></i>
+			<i class="fa fa-instagram" aria-hidden="true"></i>
+			<i class="fa fa-linkedin" aria-hidden="true"></i>
+		</div>
+		<p>Make by Vũ Hoàng Lâm</p>
+		<i class="fa fa-user-circle" aria-hidden="true"></i>
+		<p>Admin Access</p>
+	</section>
+
+
+<!-------------JavaScript for Toggle Menu------------->
+	<script>
+		var navLinks = document.getElementById("navLinks");
+		function showMenu(){
+			navLinks.style.right = "0";
+		}
+		function hideMenu(){
+			navLinks.style.right = "-150px";
+		}
+
+
+	</script>
+</body>
+</html>
