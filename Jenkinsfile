@@ -3,34 +3,29 @@ pipeline {
 
     environment {
         DOCKER_IMAGE    = "jenkintest"
-        DOCKER_TAG     = "latest"
+        DOCKER_TAG      = "latest"
         CONTAINER_NAME  = "jenkintest_container"
+        HOST_PORT       = "8081"
+        CONTAINER_PORT  = "80"
     }
 
     stages {
 
         stage('Checkout') {
             steps {
-                echo 'Checkout source code'
                 checkout scm
             }
         }
 
         stage('Build') {
             steps {
-                echo 'Build application'
-                sh '''
-                echo "Build step here"
-                '''
+                echo 'Build application (static HTML)'
             }
         }
 
         stage('Test') {
             steps {
-                echo 'Run unit tests'
-                sh '''
-                echo "Run tests here"
-                '''
+                echo 'No tests for static HTML'
             }
         }
 
@@ -46,20 +41,19 @@ pipeline {
             steps {
                 sh '''
                 docker rm -f ${CONTAINER_NAME} || true
-                docker run -d --name ${CONTAINER_NAME} ${DOCKER_IMAGE}:${DOCKER_TAG}
+
+                docker run -d \
+                  --name ${CONTAINER_NAME} \
+                  -p ${HOST_PORT}:${CONTAINER_PORT} \
+                  ${DOCKER_IMAGE}:${DOCKER_TAG}
                 '''
             }
         }
     }
 
     post {
-        success {
-            echo '✅ Pipeline SUCCESS'
-        }
-        failure {
-            echo '❌ Pipeline FAILED'
-        }
         always {
+            echo 'Running containers:'
             sh 'docker ps'
         }
     }
