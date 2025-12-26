@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE    = "JenkinTest"
+        DOCKER_IMAGE    = "jenkintest"
         DOCKER_TAG     = "latest"
-        CONTAINER_NAME  = "JenkinTest_container"
+        CONTAINER_NAME  = "jenkintest_container"
     }
 
     stages {
