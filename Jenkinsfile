@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE    = "myapp"
-        CONTAINER_NAME  = "myapp_container"
+        DOCKER_IMAGE    = "JenkinTest"
+        CONTAINER_NAME  = "JenkinTest_container"
     }
 
     stages {
@@ -46,10 +46,8 @@ pipeline {
             steps {
                 echo 'Deploy application using Docker'
                 sh """
-                docker rm -f ${CONTAINER_NAME} || true
-                docker run -d \
-                  --name ${CONTAINER_NAME} \
-                  ${DOCKER_IMAGE}
+                docker build -t ${DOCKER_IMAGE} .
+                docker run -d --name ${CONTAINER_NAME} ${DOCKER_IMAGE}
                 """
             }
         }
