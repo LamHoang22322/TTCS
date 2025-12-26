@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         DOCKER_IMAGE    = "JenkinTest"
+        DOCKER_TAG     = "latest"
         CONTAINER_NAME  = "JenkinTest_container"
     }
 
@@ -35,20 +36,18 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                echo 'Build Docker image'
-                sh """
+                sh '''
                 docker build -t ${DOCKER_IMAGE}:${DOCKER_TAG} .
-                """
+                '''
             }
         }
 
-        stage('Deploy (Docker Run)') {
+        stage('Deploy Container') {
             steps {
-                echo 'Deploy application using Docker'
-                sh """
-                docker build -t ${DOCKER_IMAGE} .
-                docker run -d --name ${CONTAINER_NAME} ${DOCKER_IMAGE}
-                """
+                sh '''
+                docker rm -f ${CONTAINER_NAME} || true
+                docker run -d --name ${CONTAINER_NAME} ${DOCKER_IMAGE}:${DOCKER_TAG}
+                '''
             }
         }
     }
